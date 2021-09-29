@@ -14,9 +14,8 @@
             <span class="white--text text-h5">{{ this.$strapi.user.username[0] }}</span>
           </v-avatar>
           <h3 class="mt-1">{{ this.$strapi.user.username }}</h3>
-          <p class="text-caption mt-1">
-            {{ this.$strapi.user.email }}
-          </p>
+          <h4 class="text-caption mt-1"><v-icon small class="mx-1">mdi-briefcase-search</v-icon>{{ this.$strapi.user.role.name == "Authenticated" ? "Job seeker" : "Recruiter" }}</h4>
+          <p class="text-caption mt-1"><v-icon small class="mx-1">mdi-at</v-icon>{{ this.$strapi.user.email }}</p>
           <v-divider class="my-3"></v-divider>
           <v-btn depressed rounded text>
             Edit Account

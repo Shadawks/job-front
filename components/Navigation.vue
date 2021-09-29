@@ -22,6 +22,15 @@
             <v-list-item-title>{{ item.title }}</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
+          <v-list-item v-if="this.$strapi.user && this.$strapi.user.role.name == 'Recruiter'" link to="/recruiter">
+            <v-list-item-icon>
+              <v-icon v-if="mini">mdi-briefcase-plus</v-icon>
+              <v-icon v-else x-large>mdi-briefcase-plus</v-icon>
+            </v-list-item-icon>
+            <v-list-item-content>
+              <v-list-item-title>Recruitements</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
       </v-list>
     </v-navigation-drawer>
   </v-card>
