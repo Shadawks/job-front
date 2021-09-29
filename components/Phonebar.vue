@@ -4,6 +4,18 @@
       <span>{{ item.title }}</span>
       <v-icon>{{ item.icon }}</v-icon>
     </v-btn>
+    <v-btn v-if="!this.$strapi.user" link to="/login">
+      <span>Login</span>
+      <v-icon>mdi-account-lock</v-icon>
+    </v-btn>
+    <v-btn v-if="!this.$strapi.user" link to="/register">
+      <span>Register</span>
+      <v-icon>mdi-account-plus</v-icon>
+    </v-btn>
+    <v-btn v-if="!this.$strapi.user && this.$strapi.user.role.name == 'Recruiter'" link to="/register">
+      <span>Recruitement</span>
+      <v-icon>mdi-briefcase-plus</v-icon>
+    </v-btn>
   </v-bottom-navigation>
 </template>
 
@@ -20,16 +32,6 @@
           title: 'About',
           icon: 'mdi-information',
           link: "/about"
-        },
-        {
-          title: 'Login',
-          icon: 'mdi-account-lock',
-          link: "/login"
-        },
-        {
-          title: 'Register',
-          icon: 'mdi-account-plus',
-          link: "/register"
         },
       ],
     }),
