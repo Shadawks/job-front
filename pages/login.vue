@@ -36,7 +36,6 @@
                     </v-card-text>
                     <v-card-actions class="d-flex justify-center">
                         <v-btn @click="login()" x-large :disabled="!isFormValid()" class="white--text">Log in</v-btn>
-                        <v-btn class="font-weight-medium" outlined href="register" x-large>Create an account</v-btn>
                     </v-card-actions>
                     <v-card-actions class="d-flex justify-center">
                         <v-btn color="grey" class="font-weight-medium mb-4" plain href="forgot-password">I forgot my password</v-btn>
