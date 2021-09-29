@@ -1,7 +1,7 @@
 <template>
   <v-app dark>
     <Navigation v-if="!isMobile"/>
-    <Appbar v-if="!isMobile"/>
+    <Appbar v-if="!isMobile || this.$strapi.user"/>
     <v-main>
       <v-container>
         <Nuxt />
