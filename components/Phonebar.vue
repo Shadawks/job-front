@@ -12,7 +12,7 @@
       <span>Register</span>
       <v-icon>mdi-account-plus</v-icon>
     </v-btn>
-    <v-btn v-if="!this.$strapi.user && this.$strapi.user.role.name == 'Recruiter'" link to="/register">
+    <v-btn v-if="this.$strapi.user && this.$strapi.user.role.name == 'Recruiter'" link to="/register">
       <span>Recruitement</span>
       <v-icon>mdi-briefcase-plus</v-icon>
     </v-btn>
