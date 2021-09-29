@@ -1,0 +1,5 @@
+<template>
+  <Ad/>
+</template>
+
+<script>
