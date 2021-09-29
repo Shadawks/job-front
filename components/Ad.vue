@@ -6,9 +6,8 @@
           <v-card class="mx-auto mt-5" max-width="600" outlined>
             <v-list-item three-line>
               <v-list-item-content>
-                <div class="text-overline mb-4 text-uppercase">
-                  {{adv.company.name}}
-                </div>
+                <div class="mb-2 text-uppercase text-h6 font-weight-bold">
+                  <v-icon class="mx-2">mdi-home-search</v-icon>{{adv.company.name}}</div>
                 <v-list-item-title class="text-h5 mb-1 text-capitalize">
                   {{adv.title}}
                 </v-list-item-title>

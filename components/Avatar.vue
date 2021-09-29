@@ -17,10 +17,6 @@
           <h4 class="text-caption mt-1"><v-icon small class="mx-1">mdi-briefcase-search</v-icon>{{ this.$strapi.user.role.name == "Authenticated" ? "Job seeker" : "Recruiter" }}</h4>
           <p class="text-caption mt-1"><v-icon small class="mx-1">mdi-at</v-icon>{{ this.$strapi.user.email }}</p>
           <v-divider class="my-3"></v-divider>
-          <v-btn depressed rounded text>
-            Edit Account
-          </v-btn>
-          <v-divider class="my-3"></v-divider>
           <v-btn depressed rounded text @click.stop="logout()">
             Disconnect
           </v-btn>
