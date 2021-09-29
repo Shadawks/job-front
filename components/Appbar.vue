@@ -5,8 +5,9 @@
         <v-btn outlined class="ma-2" to="/register"><v-icon>mdi-account-plus</v-icon>Register</v-btn>
     </v-app-bar>
     <v-app-bar app elevate-on-scroll v-else-if="this.$strapi.user">
-        <v-spacer></v-spacer>
-        <Avatar/>
+      <v-toolbar-title>JobBoard</v-toolbar-title>
+      <v-spacer></v-spacer>
+      <Avatar/>
     </v-app-bar>
 </template>
 <script>
