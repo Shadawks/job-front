@@ -31,7 +31,7 @@
           </v-chip-group>
         </v-col>
       </v-row>
-      <v-dialog v-model="dialog" persistent max-width="600px">
+      <v-dialog v-model="dialog" @keyup="dialog=false" max-width="600px">
         <template v-slot:activator="{ on, attrs }">
           <v-btn outlined text v-bind="attrs" v-on="on">
             Apply
