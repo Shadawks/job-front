@@ -16,16 +16,16 @@
       <v-row>
         <v-col cols="12" sm="6" md="12" lg="12">
           <v-chip-group active-class="primary--text" column>
-            <v-chip class="text-capitalize">
+            <v-chip class="text-capitalize" label>
               <v-icon left>mdi-map-marker</v-icon>{{adv.location}}
             </v-chip>
-            <v-chip class="text-capitalize">
+            <v-chip class="text-capitalize" label>
               <v-icon left>mdi-note-edit</v-icon>{{adv.type}}
             </v-chip>
-            <v-chip class="text-capitalize">
+            <v-chip class="text-capitalize" label>
               <v-icon left>mdi-cash</v-icon>{{adv.wages}}$
             </v-chip>
-            <v-chip class="text-capitalize">
+            <v-chip class="text-capitalize" label>
               <v-icon left>mdi-clock</v-icon>{{adv.working_time}}h/week
             </v-chip>
           </v-chip-group>
@@ -33,7 +33,7 @@
       </v-row>
       <v-dialog v-model="dialog" @keyup="dialog=false" max-width="600px">
         <template v-slot:activator="{ on, attrs }">
-          <v-btn outlined text v-bind="attrs" v-on="on">
+          <v-btn outlined text v-bind="attrs" v-on="on" :disabled="$strapi.user ? false : true">
             Apply
           </v-btn>
         </template>
@@ -56,7 +56,7 @@
               </v-row>
               <v-row>
                 <v-col cols="12" sm="12" md="12">
-                  <v-text-field label="Message" required color="white"></v-text-field>
+                  <v-text-field id="message" v-model="message" label="Message" required color="white"></v-text-field>
                 </v-col>
               </v-row>
             </v-container>
@@ -66,7 +66,7 @@
             <v-btn text @click="dialog=false">
               Close
             </v-btn>
-            <v-btn outlined color="white" @click="dialog=false">
+            <v-btn outlined color="white" @click="handleForm(adv.company.id)">
               Submit
             </v-btn>
           </v-card-actions>
@@ -91,8 +91,26 @@
   export default {
     data: () => ({
       reveal: false,
-      dialog: false
+      dialog: false,
+      message: "",
     }),
+    methods: {
+      handleClick() {
+        console.log("click")
+      },
+      async handleForm(company_id) {
+        if (this.$strapi.user) {
+          try {
+            await this.$strapi.$http.$post(`/companies/${company_id}/apply`, {
+                message: this.message
+              })
+              .then(response => console.log(response))
+          } catch (error) {
+            console.log(error)
+          }
+        }
+      },
+    },
     props: ['adv'],
   }
 
