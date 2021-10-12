@@ -27,9 +27,11 @@
                                 id="password"
                                 prepend-icon="mdi-lock"
                                 name="password"
-                                type="password"
+                                :type="show ? 'text' : 'password'"
+                                :append-icon="show ? 'mdi-eye' : 'mdi-eye-off'"
                                 :rules="passwordRules"
                                 v-model="form.password"
+                                @click:append="show = !show"
                                 @keyup.enter="login()"
                             ></v-text-field>
                         </v-form>
@@ -56,6 +58,7 @@
   export default {
     data() {
       return {
+        show: false,
         passwordRules: [
           v => !v || v.length >= 8 || ""
         ],
