@@ -66,7 +66,7 @@
             <v-btn text @click="dialog=false">
               Close
             </v-btn>
-            <v-btn outlined color="white" @click="handleForm(adv.company.id)">
+            <v-btn outlined color="white" @click="handleForm(adv.company.id, adv.id)">
               Submit
             </v-btn>
           </v-card-actions>
@@ -98,11 +98,12 @@
       handleClick() {
         console.log("click")
       },
-      async handleForm(company_id) {
+      async handleForm(company_id, adv_id) {
         if (this.$strapi.user) {
           try {
             await this.$strapi.$http.$post(`/companies/${company_id}/apply`, {
-                message: this.message
+                message: this.message,
+                adv_id: adv_id
               })
               .then(response => console.log(response))
           } catch (error) {
